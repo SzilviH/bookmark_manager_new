@@ -20,6 +20,7 @@ require 'simplecov'
 require 'simplecov-console'
 require_relative './database_helpers.rb'
 require_relative '../app.rb'
+require_relative '../database_connection_setup.rb'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([SimpleCov::Formatter::Console,])
 SimpleCov.start
@@ -28,6 +29,7 @@ ENV['ENVIRONMENT'] = 'test'
 
 RSpec.configure do |config|
   config.before(:each) do
+    database_setup
     setup_test_database
   end
 end
