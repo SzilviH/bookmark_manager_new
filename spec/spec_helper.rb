@@ -16,10 +16,13 @@
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
+require 'simplecov'
+require 'simplecov-console'
 require_relative './database_helpers.rb'
 require_relative '../app.rb'
 
-
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([SimpleCov::Formatter::Console,])
+SimpleCov.start
 
 ENV['ENVIRONMENT'] = 'test'
 
@@ -28,7 +31,6 @@ RSpec.configure do |config|
     setup_test_database
   end
 end
-
 
 Capybara.app = Bmm
 

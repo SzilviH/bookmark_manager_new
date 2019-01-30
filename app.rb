@@ -1,7 +1,6 @@
 require 'sinatra/base'
 require './lib/bookmark'
 
-
 class Bmm < Sinatra::Base
 
   get '/' do
@@ -9,15 +8,22 @@ class Bmm < Sinatra::Base
   end
 
   get '/bookmarks' do
-      @bookmarks = Bookmark.all
+    @bookmarks = Bookmark.all
+    erb :bookmarks
+  end
 
-      erb :bookmarks
+  get '/new' do
+    erb :new
   end
 
   post '/add_bookmark' do
     Bookmark.create(url: params[:url], title: params[:title])
-    # Bookmark.create(params[:title], params[:url])
     redirect '/bookmarks'
+  end
+
+  post '/delete_bookmark' do
+    Bookmark.delete(params[:delete_title])
+    redirect '/'
   end
 
 end

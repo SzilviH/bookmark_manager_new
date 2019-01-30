@@ -1,22 +1,17 @@
-<h1> Bookmarks </h1>
+<div align="center">
+  <h1> Bookmarks </h1>
 
-<ul>
-  <% @bookmarks.each do |bookmark| %>
-    <li><a href="<%= bookmark.url %>">
-        <%= bookmark.title %>
-        </a>
-    </li>
+  <ul>
+    <% @bookmarks.each do |bookmark| %>
+      <h6>><a href="<%= bookmark.url %>">
+          <%= bookmark.title %>
+          </a>
+      </h6>
     <% end %>
-    </ul>
-
-<form action=/add_bookmark method='post'>
-  <label>
-    URL:
-  </label>
-  <input type="text" name="url"><br>
-  <label>
-    NAME:
-  </label>
-  <input type="text" name="title"><br>
-  <button type="submit" value="Submit">create Bookmark</button>
+  </ul>
+  <br>
+  <br>
+  <form action=/ method="get">
+    <button type="submit" value="Submit">back</button>
   </form>
+</div>

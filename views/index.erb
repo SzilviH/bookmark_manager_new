@@ -1,9 +1,18 @@
-<ul>
-  <% @bookmarks.each do |bookmark| %>
-  <li>
-     <a href="<%= bookmark.url %>">
-       <%= bookmark.title %>
-     </a>
-   </li>
- <% end %>
-</ul>
+<div align="center">
+<h1>Welcome to your bookmark manager</h1>
+<br>
+<h3>Please select from the below options</h3>
+
+<form action=/bookmarks method='get'>
+  <button type="submit" value="Submit">view bookmarks</button>
+</form>
+<form action=/new method='get'>
+  <button type="submit" value="Submit">create bookmark</button>
+</form>
+
+<form action=/delete_bookmark method='post'>
+  <input type="text" name="delete_title" placeholder="Enter title of bookmark"><br>
+  <button type="submit" value="Submit">delete bookmark</button>
+</form>
+
+</div>

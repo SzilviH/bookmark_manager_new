@@ -16,10 +16,13 @@ As a <Stakeholder>
  So that I can save some precious time.
  I'd like to add a new bookmark to the bookmark list.
  ```
+ ```
+ As a User
+ So that I can keep my bookmark manager up to date.
+ I'd like to delete unwanted bookmarks.
+ ```
 
 
-Show a list of bookmarks
-Add new bookmarks
 Delete bookmarks
 Update bookmarks
 Comment on bookmarks
