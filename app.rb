@@ -1,5 +1,8 @@
 require 'sinatra/base'
 require './lib/bookmark'
+require './database_connection_setup'
+
+database_setup
 
 class Bmm < Sinatra::Base
 
