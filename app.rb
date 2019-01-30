@@ -26,4 +26,9 @@ class Bmm < Sinatra::Base
     redirect '/'
   end
 
+  post '/update_bookmark' do
+    Bookmark.update(params[:old_title], params[:update_title], params[:update_url])
+  redirect '/'
+  end
+
 end

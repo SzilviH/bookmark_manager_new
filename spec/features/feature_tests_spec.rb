@@ -1,4 +1,5 @@
 require 'pg'
+require_relative 'web_helpers'
 
 feature 'Testing infrastructure' do
   scenario 'It should visit main page and display main text' do
@@ -31,15 +32,23 @@ end
 
 feature 'Deleting bookmarks' do
   scenario "Deletes a bookmark" do
-    visit('/')
-    click_button('create bookmark')
-    fill_in('url', with: 'www.tesco.com')
-    fill_in('title', with: 'Tesco')
-    click_button('create Bookmark')
-    click_button('back')
+    add_bookmark
     fill_in('delete_title', with: 'Tesco')
     click_button('delete bookmark')
     click_button('view bookmarks')
     expect(page).not_to have_link("Tesco", href: "www.tesco.com")
+  end
+end
+
+
+feature 'Updating bookmarks' do
+  scenario "Updates a bookmark" do
+    add_bookmark
+    fill_in('old_title', with: 'Tesco')
+    fill_in('update_title', with: 'Tesco Updated')
+    fill_in('update_url', with: 'http://www.tesco.com/updated')
+    click_button('update bookmark')
+    click_button('view bookmarks')
+    expect(page).to have_link("Tesco Updated", href: "http://www.tesco.com/updated")
   end
 end

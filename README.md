@@ -21,6 +21,11 @@ As a <Stakeholder>
  So that I can keep my bookmark manager up to date.
  I'd like to delete unwanted bookmarks.
  ```
+ ```
+ As a User
+ I may have typed my bookmark in wrong
+ I'd like to update my bookmarks once created.
+ ```
 
 
 Delete bookmarks
